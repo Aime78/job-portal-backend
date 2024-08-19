@@ -1,9 +1,29 @@
-
 const dbConnect = require("../connectionDb");
 const Job = require("../model/job.model");
 
 exports.getJobs = async (req, res) => {
-    await dbConnect();
-    const jobs = await Job.find({});
-    res.send(jobs);
-}
+  await dbConnect();
+  const jobs = await Job.find({});
+  res.send(jobs);
+};
+
+exports.updateJob = async (req, res) => {
+  await dbConnect();
+  const job = await Job.findOneAndUpdate({ _id: req.params.id }, req.body, {
+    new: true,
+  });
+  res.send(job);
+};
+
+exports.createJob = async (req, res) => {
+  await dbConnect();
+  const job = await Job.create(req.body);
+
+  res.send(job);
+};
+
+exports.deleteJob = async (req, res) => {
+  await dbConnect();
+  const job = await Job.deleteMany({});
+  res.send(job);
+};

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const connection = {};
-async function dbConnect() {
+ async function dbConnect() {
   if (connection.isConnected) {
     return;
   }

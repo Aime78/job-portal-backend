@@ -9,6 +9,7 @@ const jobSchema = new mongoose.Schema({
   salary: String,
   jobType: String,
   experience: String,
+  datePosted: Date,
 });
 
 module.exports = jobSchema;
