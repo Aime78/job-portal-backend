@@ -1,5 +1,5 @@
-const dbConnect = require("../connectionDb");
-const Job = require("../model/job.model");
+const dbConnect = require("../connectionDB.js");
+const Job = require("../model/job.model.js");
 
 exports.getJobs = async (req, res) => {
   await dbConnect();

@@ -1,10 +1,12 @@
-const dbConnect = require("../connectionDb");
+const dbConnect = require("../connectionDB");
 const User = require("../model/user.model");
 
 exports.createUser = async (req, res) => {
   await dbConnect();
-  const user = await User.create(req.body);
-  res.send(user);
+  const user = new User(req.body);
+  const userDoc = await user.save();
+  // const user = await User.create(req.body);
+  res.send(userDoc);
 };
 
 exports.updateUser = async (req, res) => {
